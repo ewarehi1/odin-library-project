@@ -33,16 +33,28 @@ function displayLibrary(obj) {
         card.setAttribute('class', 'card')
         shelf.appendChild(card)
 
-        for (let prop in book) {
-            const detail = document.createElement('div')
-            detail.innerText = prop +': ' + book[prop]
-            detail.setAttribute('class', `${prop}`)
-            card.appendChild(detail)
+        const title = document.createElement('div')
+        title.setAttribute('class', 'title')
+        title.innerText = book.title
+        card.appendChild(title);
+
+        function readStatus() {
+            if (book.read) {
+                return "I have read this!"
+            }
+            return "I have not read this..."
         }
 
-        const deleteBtn = document.createElement('button')
-        deleteBtn.innerText = "Delete"
-        deleteBtn.setAttribute("class", "delete-button")
+        const details = document.createElement('div')
+        details.setAttribute('class', 'details')
+        details.innerText = `by ${book.author}
+            ${book.pages} pages
+            Read status: ${readStatus()}`
+        card.appendChild(details)
+
+        const deleteBtn = document.createElement('div')
+        deleteBtn.innerHTML = "<button class='delete-button'>Delete</button>"
+        deleteBtn.setAttribute("class", "delete-button-container")
         card.appendChild(deleteBtn)
     }
 }
