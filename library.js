@@ -24,3 +24,26 @@ function removeBook(title) {
         }
     }
 }
+
+function displayLibrary(obj) {
+    const shelf = document.querySelector("#shelf")
+
+    for (let book of obj) {
+        const card = document.createElement('div')
+        shelf.appendChild(card)
+
+        for (let prop in book) {
+            const detail = document.createElement('div')
+            detail.innerText = prop +': ' + book[prop]
+            detail.setAttribute('id', `${prop}`)
+            card.appendChild(detail)
+        }
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.innerText = "Delete"
+        deleteBtn.setAttribute("id", "delete-button")
+        card.appendChild(deleteBtn)
+    }
+}
+
+displayLibrary(library);

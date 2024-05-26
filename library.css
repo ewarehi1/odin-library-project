@@ -20,7 +20,7 @@ body {
     align-content: center;
 }
 
-.main {
+#shelf {
     background-color: #fdf0d5;
     height: 100%;
 }
