@@ -23,4 +23,21 @@ body {
 #shelf {
     background-color: #fdf0d5;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    margin: 20px 0px 0px 20px;
+    width: 20vw;
+    height: 20vh;
+}
+
+.title {
+    font-size: 30px
+}
+
+.delete-button {
+    display: flex;
+    align-self: flex-end;
 }

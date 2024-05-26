@@ -30,18 +30,19 @@ function displayLibrary(obj) {
 
     for (let book of obj) {
         const card = document.createElement('div')
+        card.setAttribute('class', 'card')
         shelf.appendChild(card)
 
         for (let prop in book) {
             const detail = document.createElement('div')
             detail.innerText = prop +': ' + book[prop]
-            detail.setAttribute('id', `${prop}`)
+            detail.setAttribute('class', `${prop}`)
             card.appendChild(detail)
         }
 
         const deleteBtn = document.createElement('button')
         deleteBtn.innerText = "Delete"
-        deleteBtn.setAttribute("id", "delete-button")
+        deleteBtn.setAttribute("class", "delete-button")
         card.appendChild(deleteBtn)
     }
 }
