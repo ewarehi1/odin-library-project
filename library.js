@@ -59,4 +59,48 @@ function displayLibrary(obj) {
     }
 }
 
-displayLibrary(library);
+displayLibrary(library)
+
+function createBook() {
+    const shelf = document.querySelector('#shelf')
+    const dialog = document.createElement('div')
+    dialog.innerHTML = '<dialog open>' +
+        '<p>Greetings, one and all!</p>' +
+        '<form id="add-book-form">' +
+            '<label for="title">Title</label><br>' +
+            '<input type="text" name="title" value="The Way of Kings"><br>' +
+            '<br>' +
+            '<label for="author">Author</label><br>' +
+            '<input type="text" name="author" value="Brandon Sanderson"><br>' +
+            '<br>' +
+            '<label for="pages"># of pages</label><br>' +
+            '<input type="number" name="pages" value="1258"><br>' +
+            '<br>' +
+            '<label for="read">Did you read this?</label><br>' +
+            '<input type="radio" name="read" value="true" checked>' +
+            '<label for="yes">Yes!</label>' +
+            '<br>' +
+            '<input type="radio" name="read" value="false">' +
+            '<label for="no">Nope...</label><br>' +
+            '<br>' +
+            '<button type="submit" id="submit-button">Add book</button>'
+        '</form>' +
+        '</dialog>'
+    shelf.appendChild(dialog)
+
+    const form = document.querySelector('#add-book-form')
+
+    async function sendData() {
+        const formData = new FormData(form)
+        addBookToLibrary(new Book(formData.get('title'), formData.get('author'), formData.get('pages'), formData.get('read')))
+    }
+
+    document.querySelector('#submit-button').addEventListener('click', event => {
+        event.preventDefault()
+        sendData()
+    })
+}
+
+const addBookBtn = document.querySelector('#add-book')
+// addBookBtn.addEventListener('click', () => createBook())
+addBookBtn.onclick = () => createBook()
