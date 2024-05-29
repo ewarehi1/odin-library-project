@@ -107,7 +107,9 @@ function createBook() {
 }
 
 const addBookBtn = document.querySelector('#add-book')
-addBookBtn.onclick = () => createBook()
+addBookBtn.onclick = () => {
+    if (!Boolean(document.querySelector('.form-dialog'))) createBook()
+}
 
 function clearShelf() {
     const cards = document.querySelectorAll('.card')
@@ -121,4 +123,3 @@ function updateShelf() {
     clearShelf()
     displayLibrary() 
 }
-
