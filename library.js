@@ -32,6 +32,7 @@ function displayLibrary() {
     for (let book of library) {
         const card = document.createElement('div')
         card.setAttribute('class', 'card')
+        card.setAttribute('id', `position-${library.indexOf(book)}`)
         shelf.appendChild(card)
 
         const title = document.createElement('div')
@@ -57,6 +58,13 @@ function displayLibrary() {
         deleteBtn.innerHTML = "<button class='delete-button'>Delete</button>"
         deleteBtn.setAttribute("class", "delete-button-container")
         card.appendChild(deleteBtn)
+
+        const cards = document.querySelectorAll('.card')
+        deleteBtn.addEventListener('click', () => {
+            const position = Array.from(cards).indexOf(deleteBtn.parentNode)
+            library.splice(position, 1)
+            updateShelf()
+        })
     }
 }
 
