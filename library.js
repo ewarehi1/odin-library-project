@@ -27,9 +27,9 @@ function removeBook(title) {
 
 const shelf = document.querySelector("#shelf")
 
-function displayLibrary(obj) {
+function displayLibrary() {
 
-    for (let book of obj) {
+    for (let book of library) {
         const card = document.createElement('div')
         card.setAttribute('class', 'card')
         shelf.appendChild(card)
@@ -60,7 +60,7 @@ function displayLibrary(obj) {
     }
 }
 
-displayLibrary(library)
+displayLibrary()
 
 function createBook() {
     const shelf = document.querySelector('#shelf')
@@ -116,5 +116,5 @@ function clearShelf() {
 
 function updateShelf() {
     clearShelf()
-    displayLibrary(library) 
+    displayLibrary() 
 }
