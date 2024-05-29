@@ -25,8 +25,9 @@ function removeBook(title) {
     }
 }
 
+const shelf = document.querySelector("#shelf")
+
 function displayLibrary(obj) {
-    const shelf = document.querySelector("#shelf")
 
     for (let book of obj) {
         const card = document.createElement('div')
@@ -98,9 +99,22 @@ function createBook() {
     document.querySelector('#submit-button').addEventListener('click', event => {
         event.preventDefault()
         sendData()
+        updateShelf()
     })
 }
 
 const addBookBtn = document.querySelector('#add-book')
-// addBookBtn.addEventListener('click', () => createBook())
 addBookBtn.onclick = () => createBook()
+
+function clearShelf() {
+    const cards = document.querySelectorAll('.card')
+
+    for ( let i = 0; i < cards.length; i++) {
+        shelf.removeChild(cards[i])
+    }
+}
+
+function updateShelf() {
+    clearShelf()
+    displayLibrary(library) 
+}
