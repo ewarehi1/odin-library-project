@@ -28,16 +28,20 @@ body {
 }
 
 .card {
-    margin: 20px 0px 0px 20px;
+    margin: 20px 20px 0px 20px;
     width: 20vw;
     height: 20vh;
+    display: flex;
+    flex-direction: column
 }
 
 .title {
     font-size: 30px
 }
 
-.delete-button {
+.buttons-container {
     display: flex;
-    align-self: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+    height:max-content;
 }

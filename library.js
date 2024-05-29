@@ -54,12 +54,27 @@ function displayLibrary() {
             Read status: ${readStatus()}`
         card.appendChild(details)
 
-        const deleteBtn = document.createElement('div')
-        deleteBtn.innerHTML = "<button class='delete-button'>Delete</button>"
-        deleteBtn.setAttribute("class", "delete-button-container")
-        card.appendChild(deleteBtn)
+        const buttons = document.createElement('div')
+        buttons.setAttribute("class", "buttons-container")
+        card.appendChild(buttons)
+
+        const readBtn = document.createElement('button')
+        readBtn.setAttribute('class', 'read-button')
+        readBtn.innerText = 'Read'
+        card.appendChild(readBtn);
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.setAttribute('class', 'delete-button')
+        deleteBtn.textContent = 'Delete'
+        card.appendChild(deleteBtn);
 
         const cards = document.querySelectorAll('.card')
+
+        readBtn.addEventListener('click', () => {
+            book.read = !book.read
+            updateShelf()
+        })
+
         deleteBtn.addEventListener('click', () => {
             const position = Array.from(cards).indexOf(deleteBtn.parentNode)
             library.splice(position, 1)
