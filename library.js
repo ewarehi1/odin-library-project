@@ -63,8 +63,9 @@ function displayLibrary() {
 displayLibrary()
 
 function createBook() {
-    const shelf = document.querySelector('#shelf')
+    const header = document.querySelector('#header')
     const dialog = document.createElement('div')
+    dialog.classList.add('form-dialog')
     dialog.innerHTML = '<dialog open>' +
         '<p>Greetings, one and all!</p>' +
         '<form id="add-book-form">' +
@@ -87,7 +88,9 @@ function createBook() {
             '<button type="submit" id="submit-button">Add book</button>'
         '</form>' +
         '</dialog>'
-    shelf.appendChild(dialog)
+
+    
+    header.insertBefore(dialog, document.querySelector('#add-book'))
 
     const form = document.querySelector('#add-book-form')
 
