@@ -87,9 +87,8 @@ function createBook() {
             '<br>' +
             '<button type="submit" id="submit-button">Add book</button>'
         '</form>' +
-        '</dialog>'
+    '</dialog>'
 
-    
     header.insertBefore(dialog, document.querySelector('#add-book'))
 
     const form = document.querySelector('#add-book-form')
@@ -103,6 +102,7 @@ function createBook() {
         event.preventDefault()
         sendData()
         updateShelf()
+        header.removeChild(document.querySelector('.form-dialog'))
     })
 }
 
@@ -121,3 +121,4 @@ function updateShelf() {
     clearShelf()
     displayLibrary() 
 }
+
