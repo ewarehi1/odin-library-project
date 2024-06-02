@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
     this.author = author,
     this.pages = pages,
     this.read = read
+
+    this.changeReadStatus = () => {
+        this.read = !this.read
+    }
 };
 
 function addBookToLibrary(book) {
@@ -71,7 +75,7 @@ function displayLibrary() {
         const cards = document.querySelectorAll('.card')
 
         readBtn.addEventListener('click', () => {
-            book.read = !book.read
+            book.changeReadStatus()
             updateShelf()
         })
 
